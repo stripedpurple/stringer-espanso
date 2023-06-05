@@ -1,0 +1,100 @@
+matches:
+  - trigger: ":low"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | sed -e 's/\(.*\)/\L\1/'"
+  - trigger: ":up"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | sed -e 's/\(.*\)/\U\1/'"
+  - trigger: ":title"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | sed 's/.*/\L&/; s/[a-z]*/\u&/g'"
+  - trigger: ":dos2unix"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | sed 's/^M$//'"
+  - trigger: ":unix2dos"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD |  sed 's/$/\r/'"
+  - trigger: ":trim"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | sed 's/^[ \t]*//; s/[ \t]*$//'"
+  - trigger: ":tac"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | sed '1!G;h;$!d'"
+  - trigger: ":rev"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | sed '1!G;h;$!d'"
+  - trigger: ":rot13"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | tr 'A-Za-z' 'N-ZA-Mn-za-m'"
+  - trigger: ":eb64"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | base64"
+  - trigger: ":db64"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | base64 -d"

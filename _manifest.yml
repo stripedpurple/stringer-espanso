@@ -1,0 +1,7 @@
+author: Austin Barrett (Striped Purple)
+description: A collection of string manipulations for the clipboard (UNIX only)
+homepage: https://github.com/stripedpurple/stringer-espanso
+name: stringer
+title: Stringer [String Manipulations]
+version: 0.1.0
+tags: ["utility", "shell"]
